@@ -1,0 +1,87 @@
+<!-- RENDER AN ELEMENT -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React</title>
+</head>
+
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+
+        class DinnerVote extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    votes: 0
+                };
+            }
+            add() {
+                this.setState({
+                    votes: this.state.votes + 1
+                })
+            }
+            substract() {
+                this.setState({
+                    votes: this.state.votes - 1
+                })
+            }
+            render() {
+                var dinnerVoteStyle = {
+                    display: "inline-block",
+                    textAlign: "center",
+                    margin: 20,
+                    height: 450,
+                    width: 300,
+                    padding: 0,
+                    backgroundColor: "#FFF",
+                    WebkitFilter: "drop-shadow(0px 0px 5px #555)",
+                    filter: "drop-shadow(0px 0px 5px #555)"
+                }
+                var foodStyle = {
+                    marginLeft: 35,
+                    marginTop: 20,
+                    height: 150,
+                    width: 150,
+                    borderRadius: "50%"
+                }
+                return (
+                    <div style={dinnerVoteStyle}>
+                        <img src={this.props.img} alt="food image" style={foodStyle} />
+                        <h1>Dinner Time</h1>
+                        <p>Vote here if you want this</p>
+                        <button onClick={() => this.add()}>+1</button>
+                        <p>Vote here if you do not want this</p>
+                        <button onClick={() => this.substract()}>-1</button>
+                        <p>Total: {this.state.votes}</p>
+                    </div>
+                );
+            }
+        }
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        ReactDOM.render(
+            //React what - JSX
+            <div>
+                <DinnerVote img="https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?cs=srgb&dl=pexels-ash-376464.jpg&fm=jpg" />
+                <DinnerVote img="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=768,574" />
+                <DinnerVote img="https://www.refrigeratedfrozenfood.com/ext/resources/NEW_RD_Website/DefaultImages/default-pasta.jpg?1430942591" />
+            </div>,
+            //React where - with div id of "app"
+            document.getElementById("app")
+        );
+    </script>
+</body>
+
+</html>

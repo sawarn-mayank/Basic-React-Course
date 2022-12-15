@@ -1,0 +1,66 @@
+<!-- RENDERING MULTIPLE ELEMENTS USING VARIABLES (REFACTORING) -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- REACT LIBRARY -->
+    <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+    <!-- REACT DOM LIBRARY -->
+    <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+    <!-- BABEL LIBRARY -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+    <title>Let's React</title>
+</head>
+
+<body>
+    <!-- DESIGNATED LOCATION TO INSERT REACT CONTENT -->
+    <div id="app">React has not rendered yet</div>
+    <div id="para">React has not rendered yet</div>
+    <div id="link">React has not rendered yet</div>
+    <div id="task">React has not rendered yet</div>
+    <!-- JAVASCRIPT -->
+    <script type="text/babel">
+        // RENDER REACT TO THE DOM - WILL ACCEPT TWO ARGUMENTS (REACT WHAT, REACT WHERE)
+        var wh1 = <h1>Hello World!!</h1>;
+        var whr1 = document.getElementById("app");
+        ReactDOM.render(
+            //React what - JSX
+            wh1,
+            //React where - with div id of "app"
+            whr1
+        );
+        var wh2 = <p>This is a paragraph!!</p>;
+        var whr2 = document.getElementById("para");
+        ReactDOM.render(
+            //React what - JSX
+            wh2,
+            //React where - with div id of "app"
+            whr2
+        );
+        var wh3 = <a href = "https://www.google.com/">Google Link</a>;
+        var whr3 = document.getElementById("link");
+        ReactDOM.render(
+            //React what - JSX
+            wh3,
+            //React where - with div id of "app"
+            whr3
+        );
+        var wh4 = <ul>
+                    <li>Task 1</li>
+                    <li>Task 2</li>
+                    <li>Task 3</li>
+                  </ul>;
+        var whr4 = document.getElementById("task");
+        ReactDOM.render(
+            //React what - JSX
+            wh4,
+            //React where - with div id of "app"
+            whr4
+        );
+    </script>
+</body>
+
+</html>
